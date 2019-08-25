@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //setActionBar(findViewById(R.id.toolbar));
         TextView challenge1 = findViewById(R.id.challenge1);
         Button generate = findViewById(R.id.generate);
         generate.setOnClickListener(view -> challenge1.setText(generateChallenge()));
