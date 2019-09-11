@@ -1,5 +1,6 @@
 package com.example.wedochallengegenerator;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //setActionBar(findViewById(R.id.toolbar));
+
         TextView challenge1 = findViewById(R.id.challenge1);
         Button generate = findViewById(R.id.generate);
         generate.setOnClickListener(view -> challenge1.setText(generateChallenge()));
