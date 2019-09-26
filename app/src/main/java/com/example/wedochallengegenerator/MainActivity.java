@@ -18,8 +18,12 @@ public class MainActivity extends AppCompatActivity {
         //setActionBar(findViewById(R.id.toolbar));
 
         TextView challenge1 = findViewById(R.id.challenge1);
+        TextView challenge2 = findViewById(R.id.challenge2);
+        TextView challenge3 = findViewById(R.id.challenge3);
         Button generate = findViewById(R.id.generate);
         generate.setOnClickListener(view -> challenge1.setText(generateChallenge()));
+        generate.setOnClickListener(view -> challenge2.setText(generateMediumChallenge()));
+        generate.setOnClickListener(view -> challenge3.setText(generateHardChallenge()));
     }
 
     /*
@@ -184,88 +188,88 @@ public class MainActivity extends AppCompatActivity {
     /*
      * Function to generate Sensor specific challenges
      */
-    public void generateLevelTwoChallenges()
-    {
-        int randomNumber = Block.randomNumber(1, 4);
-        SensorNames _sensor = SensorNames.getBlock(randomNumber);
-        Block obj;
-        int num;
-        switch (_sensor)
-        {
-            case SensorNames.Motion:
-                lblChallenge1.Text = "Challenge 1: When the model is tilted forward, " + generateEasyChallenge();
-
-                obj = chooseBlock();
-                lblChallenge2.Text = "Challenge 2: When the model is tilted backward, " + generateMediumChallenge();
-
-                num = Block.randomNumber(1, 3);
-                obj = chooseBlock();
-                if (num == 1)
-                {
-                    lblChallenge3.Text = "Challenge 3: When the model is tilted left, " + generateHardChallenge();
-                }
-                else
-                {
-                    lblChallenge3.Text = "Challenge 3: When the model is tilted right, " + generateHardChallenge();
-                }
-                break;
-            case SensorNames.Distance:
-                int dist1, dist2, dist3;
-                dist1 = Block.randomNumber(1, 16);                              //Generate a random distance between 1 and 15 (the maximum detectable distance)
-                lblChallenge1.Text = "Challenge 1: When the distance is " + dist1 + " centimenters away, " + generateEasyChallenge();
-
-                do
-                {
-                    dist2 = Block.randomNumber(1, 16);
-                } while (dist2 == dist1);
-                lblChallenge2.Text = "Challenge 2: When the distance is " + dist2 + " centimenters away, " + generateMediumChallenge();
-
-                do
-                {
-                    dist3 = Block.randomNumber(1, 16);
-                } while (dist3 == dist1 || dist3 == dist2);
-                lblChallenge3.Text = "Challenge 3: When the distance is " + dist3 + " centimenters away, " + generateHardChallenge();
-
-                break;
-            case SensorNames.Sound:
-                int vol1, vol2, vol3;
-                vol1 = Block.randomNumber(1, 16);                              //Generate a random distance between 1 and 15 (the maximum detectable distance)
-                lblChallenge1.Text = "Challenge 1: When the volume is " + vol1 + ", " + generateEasyChallenge();
-
-                do
-                {
-                    vol2 = Block.randomNumber(1, 16);
-                } while (vol2 == vol1);
-                lblChallenge2.Text = "Challenge 2: When the volume is " + vol2 + ", " + generateMediumChallenge();
-
-                do
-                {
-                    vol3 = Block.randomNumber(1, 16);
-                } while (vol3 == vol1 || vol3 == vol2);
-                lblChallenge3.Text = "Challenge 3: When the volume is " + vol3 + ", " + generateHardChallenge();
-                break;
-        }
-
-    }
-
-    /*
-     * Function to generate Level one (broad) challenges
-     */
-    public void generateLevelOneChallenges()
-    {
-        String challenge = "Challenge 1: ";
-        Block obj = new StartBlock();
-        challenge += obj.generateSegment();
-        lblChallenge1.Text = challenge + generateEasyChallenge();
-
-        obj = new StartBlock();
-        challenge = "Challenge 2: " + obj.generateSegment();
-        lblChallenge2.Text = challenge + generateMediumChallenge();
-
-        obj = new StartBlock();
-        challenge = "Challenge 3: " + obj.generateSegment();
-        lblChallenge3.Text = challenge + generateHardChallenge();
-    }
+//    public void generateLevelTwoChallenges()
+//    {
+//        int randomNumber = Block.randomNumber(1, 4);
+//        SensorNames _sensor = SensorNames.getBlock(randomNumber);
+//        Block obj;
+//        int num;
+//        switch (_sensor)
+//        {
+//            case SensorNames.Motion:
+//                lblChallenge1.Text = "Challenge 1: When the model is tilted forward, " + generateEasyChallenge();
+//
+//                obj = chooseBlock();
+//                lblChallenge2.Text = "Challenge 2: When the model is tilted backward, " + generateMediumChallenge();
+//
+//                num = Block.randomNumber(1, 3);
+//                obj = chooseBlock();
+//                if (num == 1)
+//                {
+//                    lblChallenge3.Text = "Challenge 3: When the model is tilted left, " + generateHardChallenge();
+//                }
+//                else
+//                {
+//                    lblChallenge3.Text = "Challenge 3: When the model is tilted right, " + generateHardChallenge();
+//                }
+//                break;
+//            case SensorNames.Distance:
+//                int dist1, dist2, dist3;
+//                dist1 = Block.randomNumber(1, 16);                              //Generate a random distance between 1 and 15 (the maximum detectable distance)
+//                lblChallenge1.Text = "Challenge 1: When the distance is " + dist1 + " centimenters away, " + generateEasyChallenge();
+//
+//                do
+//                {
+//                    dist2 = Block.randomNumber(1, 16);
+//                } while (dist2 == dist1);
+//                lblChallenge2.Text = "Challenge 2: When the distance is " + dist2 + " centimenters away, " + generateMediumChallenge();
+//
+//                do
+//                {
+//                    dist3 = Block.randomNumber(1, 16);
+//                } while (dist3 == dist1 || dist3 == dist2);
+//                lblChallenge3.Text = "Challenge 3: When the distance is " + dist3 + " centimenters away, " + generateHardChallenge();
+//
+//                break;
+//            case SensorNames.Sound:
+//                int vol1, vol2, vol3;
+//                vol1 = Block.randomNumber(1, 16);                              //Generate a random distance between 1 and 15 (the maximum detectable distance)
+//                lblChallenge1.Text = "Challenge 1: When the volume is " + vol1 + ", " + generateEasyChallenge();
+//
+//                do
+//                {
+//                    vol2 = Block.randomNumber(1, 16);
+//                } while (vol2 == vol1);
+//                lblChallenge2.Text = "Challenge 2: When the volume is " + vol2 + ", " + generateMediumChallenge();
+//
+//                do
+//                {
+//                    vol3 = Block.randomNumber(1, 16);
+//                } while (vol3 == vol1 || vol3 == vol2);
+//                lblChallenge3.Text = "Challenge 3: When the volume is " + vol3 + ", " + generateHardChallenge();
+//                break;
+//        }
+//
+//    }
+//
+//    /*
+//     * Function to generate Level one (broad) challenges
+//     */
+//    public void generateLevelOneChallenges()
+//    {
+//        String challenge = "Challenge 1: ";
+//        Block obj = new StartBlock();
+//        challenge += obj.generateSegment();
+//        lblChallenge1.Text = challenge + generateEasyChallenge();
+//
+//        obj = new StartBlock();
+//        challenge = "Challenge 2: " + obj.generateSegment();
+//        lblChallenge2.Text = challenge + generateMediumChallenge();
+//
+//        obj = new StartBlock();
+//        challenge = "Challenge 3: " + obj.generateSegment();
+//        lblChallenge3.Text = challenge + generateHardChallenge();
+//    }
 
 
 }
