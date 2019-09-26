@@ -10,6 +10,9 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     boolean looped = false;
+    private TextView challenge1;
+    private TextView challenge2;
+    private TextView challenge3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,13 +20,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //setActionBar(findViewById(R.id.toolbar));
 
-        TextView challenge1 = findViewById(R.id.challenge1);
-        TextView challenge2 = findViewById(R.id.challenge2);
-        TextView challenge3 = findViewById(R.id.challenge3);
+        challenge1 = findViewById(R.id.challenge1);
+        challenge2 = findViewById(R.id.challenge2);
+        challenge3 = findViewById(R.id.challenge3);
         Button generate = findViewById(R.id.generate);
-        generate.setOnClickListener(view -> challenge1.setText(generateChallenge()));
-        generate.setOnClickListener(view -> challenge2.setText(generateMediumChallenge()));
-        generate.setOnClickListener(view -> challenge3.setText(generateHardChallenge()));
+        generate.setOnClickListener(view -> generateLevelOneChallenges());
+
     }
 
     /*
@@ -252,24 +254,28 @@ public class MainActivity extends AppCompatActivity {
 //
 //    }
 //
-//    /*
-//     * Function to generate Level one (broad) challenges
-//     */
-//    public void generateLevelOneChallenges()
-//    {
-//        String challenge = "Challenge 1: ";
-//        Block obj = new StartBlock();
-//        challenge += obj.generateSegment();
-//        lblChallenge1.Text = challenge + generateEasyChallenge();
-//
-//        obj = new StartBlock();
-//        challenge = "Challenge 2: " + obj.generateSegment();
-//        lblChallenge2.Text = challenge + generateMediumChallenge();
-//
-//        obj = new StartBlock();
-//        challenge = "Challenge 3: " + obj.generateSegment();
-//        lblChallenge3.Text = challenge + generateHardChallenge();
-//    }
+    /*
+     * Function to generate Level one (broad) challenges
+     */
+    public void generateLevelOneChallenges()
+    {
+        try {
+            String challenge = "Challenge 1: ";
+            Block obj = new StartBlock();
+            challenge += obj.generateSegment();
+            challenge1.setText(challenge + generateEasyChallenge());
+
+            obj = new StartBlock();
+            challenge = "Challenge 2: " + obj.generateSegment();
+            challenge2.setText(challenge + generateMediumChallenge());
+
+            obj = new StartBlock();
+            challenge = "Challenge 3: " + obj.generateSegment();
+            challenge3.setText(challenge + generateHardChallenge());
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
 
 
 }
