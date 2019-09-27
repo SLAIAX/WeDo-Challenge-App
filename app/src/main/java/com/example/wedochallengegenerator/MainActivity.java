@@ -190,70 +190,70 @@ public class MainActivity extends AppCompatActivity {
     /*
      * Function to generate Sensor specific challenges
      */
-//    public void generateLevelTwoChallenges()
-//    {
-//        int randomNumber = Block.randomNumber(1, 4);
-//        SensorNames _sensor = SensorNames.getBlock(randomNumber);
-//        Block obj;
-//        int num;
-//        switch (_sensor)
-//        {
-//            case SensorNames.Motion:
-//                lblChallenge1.Text = "Challenge 1: When the model is tilted forward, " + generateEasyChallenge();
-//
-//                obj = chooseBlock();
-//                lblChallenge2.Text = "Challenge 2: When the model is tilted backward, " + generateMediumChallenge();
-//
-//                num = Block.randomNumber(1, 3);
-//                obj = chooseBlock();
-//                if (num == 1)
-//                {
-//                    lblChallenge3.Text = "Challenge 3: When the model is tilted left, " + generateHardChallenge();
-//                }
-//                else
-//                {
-//                    lblChallenge3.Text = "Challenge 3: When the model is tilted right, " + generateHardChallenge();
-//                }
-//                break;
-//            case SensorNames.Distance:
-//                int dist1, dist2, dist3;
-//                dist1 = Block.randomNumber(1, 16);                              //Generate a random distance between 1 and 15 (the maximum detectable distance)
-//                lblChallenge1.Text = "Challenge 1: When the distance is " + dist1 + " centimenters away, " + generateEasyChallenge();
-//
-//                do
-//                {
-//                    dist2 = Block.randomNumber(1, 16);
-//                } while (dist2 == dist1);
-//                lblChallenge2.Text = "Challenge 2: When the distance is " + dist2 + " centimenters away, " + generateMediumChallenge();
-//
-//                do
-//                {
-//                    dist3 = Block.randomNumber(1, 16);
-//                } while (dist3 == dist1 || dist3 == dist2);
-//                lblChallenge3.Text = "Challenge 3: When the distance is " + dist3 + " centimenters away, " + generateHardChallenge();
-//
-//                break;
-//            case SensorNames.Sound:
-//                int vol1, vol2, vol3;
-//                vol1 = Block.randomNumber(1, 16);                              //Generate a random distance between 1 and 15 (the maximum detectable distance)
-//                lblChallenge1.Text = "Challenge 1: When the volume is " + vol1 + ", " + generateEasyChallenge();
-//
-//                do
-//                {
-//                    vol2 = Block.randomNumber(1, 16);
-//                } while (vol2 == vol1);
-//                lblChallenge2.Text = "Challenge 2: When the volume is " + vol2 + ", " + generateMediumChallenge();
-//
-//                do
-//                {
-//                    vol3 = Block.randomNumber(1, 16);
-//                } while (vol3 == vol1 || vol3 == vol2);
-//                lblChallenge3.Text = "Challenge 3: When the volume is " + vol3 + ", " + generateHardChallenge();
-//                break;
-//        }
-//
-//    }
-//
+    public void generateLevelTwoChallenges()
+    {
+        int randomNumber = Block.randomNumber(1, 4);
+        SensorNames _sensor = SensorNames.getBlock(randomNumber);
+        Block obj;
+        int num;
+        switch (_sensor)
+        {
+            case Motion:
+                challenge1.setText("Challenge 1: When the model is tilted forward, " + generateEasyChallenge());
+
+                obj = chooseBlock();
+                challenge2.setText("Challenge 2: When the model is tilted backward, " + generateMediumChallenge());
+
+                num = Block.randomNumber(1, 3);
+                obj = chooseBlock();
+                if (num == 1)
+                {
+                    challenge3.setText("Challenge 3: When the model is tilted left, " + generateHardChallenge());
+                }
+                else
+                {
+                    challenge3.setText("Challenge 3: When the model is tilted right, " + generateHardChallenge());
+                }
+                break;
+            case Distance:
+                int dist1, dist2, dist3;
+                dist1 = Block.randomNumber(1, 16);                              //Generate a random distance between 1 and 15 (the maximum detectable distance)
+                challenge1.setText("Challenge 1: When the distance is " + dist1 + " centimenters away, " + generateEasyChallenge());
+
+                do
+                {
+                    dist2 = Block.randomNumber(1, 16);
+                } while (dist2 == dist1);
+                challenge2.setText("Challenge 2: When the distance is " + dist2 + " centimenters away, " + generateMediumChallenge());
+
+                do
+                {
+                    dist3 = Block.randomNumber(1, 16);
+                } while (dist3 == dist1 || dist3 == dist2);
+                challenge3.setText("Challenge 3: When the distance is " + dist3 + " centimenters away, " + generateHardChallenge());
+
+                break;
+            case Sound:
+                int vol1, vol2, vol3;
+                vol1 = Block.randomNumber(1, 16);                              //Generate a random distance between 1 and 15 (the maximum detectable distance)
+                challenge1.setText("Challenge 1: When the volume is " + vol1 + ", " + generateEasyChallenge());
+
+                do
+                {
+                    vol2 = Block.randomNumber(1, 16);
+                } while (vol2 == vol1);
+                challenge2.setText("Challenge 2: When the volume is " + vol2 + ", " + generateMediumChallenge());
+
+                do
+                {
+                    vol3 = Block.randomNumber(1, 16);
+                } while (vol3 == vol1 || vol3 == vol2);
+                challenge3.setText("Challenge 3: When the volume is " + vol3 + ", " + generateHardChallenge());
+                break;
+        }
+
+    }
+
     /*
      * Function to generate Level one (broad) challenges
      */
